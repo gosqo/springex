@@ -16,28 +16,22 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class TimeMapperTests {
 
     @Autowired(required = false)
-    private TimeMapper timeMapper;
+    private TimeMapper2 timeMapper2;
 
     @Test
     public void testGetTime() {
 
         System.out.println("testGetTime method called.");
 
-        Assertions.assertNotNull(timeMapper);
-        log.info(timeMapper);
+        Assertions.assertNotNull(timeMapper2);
+        log.info(timeMapper2);
         System.out.println("log info instance timeMapper.");
-        log.info(timeMapper.getClass());
+        log.info(timeMapper2.getClass());
         System.out.println("log info instance timeMapper.getClass()");
-        log.info(timeMapper.getClass().getName());
+        log.info(timeMapper2.getClass().getName());
         System.out.println("log info instance timeMapper.getClass().getName()");
-        log.info(timeMapper.getTime());
+        log.info(timeMapper2.getNow());
         System.out.println("log info timeMapper.getTime()");
     }
 
-    @Test
-    public void testGetTime2() {
-
-        log.info("getTime2");
-        log.info(timeMapper.getTime2());
-    }
 }
