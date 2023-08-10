@@ -50,4 +50,10 @@
          LIMIT #{skip}, #{size}
     </select>
 
+    <select id="getCount"
+            resultType="int">
+        SELECT COUNT(tno)
+          FROM tbl_todo
+    </select>
+
 </mapper>
