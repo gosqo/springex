@@ -21,7 +21,7 @@
          ORDER BY tno DESC
     </select>
 
-    <select id="selectOne" resultType="com.multicampus.domain.TodoVO">
+    <select id="selectOne" resultType="com.multicampus.springex.domain.TodoVO">
         SELECT *
           FROM tbl_todo
          WHERE tno = #{tno}
