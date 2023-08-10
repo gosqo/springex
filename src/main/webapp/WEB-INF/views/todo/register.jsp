@@ -17,20 +17,20 @@
     <div class="row">
         <div class="col">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="..">Navbar</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                            <a class="nav-link active" aria-current="page" href="https://www.daum.net">Daum</a>
-                            <a class="nav-link" href="https://www.naver.com">Naver</a>
-                            <a class="nav-link" href="https://www.google.com">Google</a>
-                            <a class="nav-link disabled">Disabled</a>
-                        </div>
-                    </div>
-                </div>
+<%--                <div class="container-fluid">--%>
+<%--                    <a class="navbar-brand" href="/todo/list">Navbar</a>--%>
+<%--                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">--%>
+<%--                        <span class="navbar-toggler-icon"></span>--%>
+<%--                    </button>--%>
+<%--                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">--%>
+<%--                        <div class="navbar-nav">--%>
+<%--                            <a class="nav-link active" aria-current="page" href="https://www.daum.net">Daum</a>--%>
+<%--                            <a class="nav-link" href="https://www.naver.com">Naver</a>--%>
+<%--                            <a class="nav-link" href="https://www.google.com">Google</a>--%>
+<%--                            <a class="nav-link disabled">Disabled</a>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
             </nav>
         </div>
     </div>
@@ -39,7 +39,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        Todo List!
+                        Register Todo here!
                     </div>
                     <div class="card-body">
                         <form action="/todo/register" method="post">
@@ -57,19 +57,26 @@
                             </div>
                             <div class="my-4">
                                 <div class="float-end">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="reset" class="btn btn-success">Go to List</button>
                                     <button type="reset" class="btn btn-secondary">Reset</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
                         </form>
                         <script>
 <%--                            서버사이드 검증 --%>
                             const serverValidResult = {}
+
                             <c:forEach items="${errors}" var="error">
                                 serverValidResult['${error.getField()}'] = '${error.defaultMessage}'
                             </c:forEach>
 
-                            console.log(serverValidResult)
+                            console.log(serverValidResult);
+
+                            document.querySelector(".btn-success").addEventListener("click",function(e){
+                                self.location = "/todo/list";
+                            },false);
+
                         </script>
                     </div>
                 </div>

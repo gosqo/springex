@@ -21,10 +21,33 @@
          ORDER BY tno DESC
     </select>
 
-    <select id="selectOne" resultType="com.multicampus.springex.domain.TodoVO">
+    <select id="selectOne"
+            resultType="com.multicampus.springex.domain.TodoVO">
         SELECT *
           FROM tbl_todo
          WHERE tno = #{tno}
+    </select>
+
+    <delete id="delete">
+        DELETE
+          FROM tbl_todo
+         WHERE tno = #{tno}
+    </delete>
+
+    <update id="update">
+        UPDATE tbl_todo
+           SET title = #{title},
+               dueDate = #{dueDate},
+               finished = #{finished}
+         WHERE tno = #{tno}
+    </update>
+
+    <select id="selectList"
+            resultType="com.multicampus.springex.domain.TodoVO">
+        SELECT *
+          FROM tbl_todo
+         ORDER BY tno DESC
+         LIMIT #{skip}, #{size}
     </select>
 
 </mapper>

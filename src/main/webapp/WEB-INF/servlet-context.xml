@@ -9,13 +9,13 @@
        http://www.springframework.org/schema/context
        https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <mvc:annotation-driven></mvc:annotation-driven>
+    <mvc:annotation-driven/>
 
-    <mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources>
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/views/"></property>
-        <property name="suffix" value=".jsp"></property>
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
     <context:component-scan base-package="com.multicampus.springex.controller"/>
@@ -24,7 +24,7 @@
         <property name="formatters">
             <set>
                 <bean class="com.multicampus.springex.controller.formatter.LocalDateFormatter"/>
-<!--                <bean class="com.multicampus.springex.controller.formatter.CheckboxFormatter"/>-->
+                <bean class="com.multicampus.springex.controller.formatter.CheckboxFormatter"/>
             </set>
         </property>
     </bean>

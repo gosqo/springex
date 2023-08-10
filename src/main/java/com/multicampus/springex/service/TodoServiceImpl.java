@@ -43,11 +43,27 @@ public class TodoServiceImpl implements TodoService {
     @Override
     public TodoDTO getOne(Long tno) {
 
+        // todoVO ==> todoDTO 변환
         TodoVO todoVO = todoMapper.selectOne(tno);
-
         TodoDTO todoDTO = modelMapper.map(todoVO, TodoDTO.class);
 
         return todoDTO;
+    }
+
+    @Override
+    public void remove(Long tno) {
+
+        todoMapper.delete(tno);
+
+    }
+
+    @Override
+    public void modify(TodoDTO todoDTO) {
+
+        TodoVO todoVO = modelMapper.map(todoDTO, TodoVO.class);
+
+        todoMapper.update(todoVO);
+
     }
 
 }
