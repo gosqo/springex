@@ -106,6 +106,7 @@
                             </tbody>
                         </table>
                         <div class="my-4">
+                            <button id="goRegister" class="btn btn-primary">Register</button>
                             <div class="float-end">
                                 <ul class="pagination flex-wrap">
                                     <c:if test="${responseDTO.prev}">
@@ -135,9 +136,9 @@
         </div>
     </div>
     <script>
+        document.querySelector("#goRegister").addEventListener("click",function (e) {
+            self.location = "/todo/register";
 
-        document.querySelector(".btn-primary").addEventListener("click",function(e){
-            self.location = "/todo/register"
         },false)
 
         <%--document.querySelector(".pagination").addEventListener("click", function (e) {--%>
