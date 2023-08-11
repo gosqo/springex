@@ -68,7 +68,7 @@ public class TodoController {
         log.info(todoDTO);
         todoService.register(todoDTO);
 
-        return "redirect:/todo/list";
+        return "list";
 
     }
 
@@ -83,7 +83,8 @@ public class TodoController {
     }
 
     @PostMapping("/modify")
-    public String modify(@Valid TodoDTO todoDTO,
+    public String modify(PageRequestDTO pageRequestDTO,
+                         @Valid TodoDTO todoDTO,
                          BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
 
@@ -95,9 +96,13 @@ public class TodoController {
         }
 
         log.info(todoDTO);
+
         todoService.modify(todoDTO);
 
-        return "redirect:/todo/list";
+        redirectAttributes.addAttribute("tno", todoDTO.getTno());
+
+        return "redirect:/todo/read";
+
     }
 
     @PostMapping("/remove")
@@ -110,6 +115,7 @@ public class TodoController {
         todoService.remove(tno);
 
         return "redirect:/todo/list";
+
     }
 
 }

@@ -46,6 +46,30 @@
             resultType="com.multicampus.springex.domain.TodoVO">
         SELECT *
           FROM tbl_todo
+              <where>
+                <if test="types != null and types.length > 0">
+                    <foreach collection="types" item="type" open="(" close=")" separator=" OR ">
+                        <if test="type == 't'.toString()">
+                            title LIKE concat('%', #{keyword}, '%')
+                        </if>
+                        <if test="type == 'w'.toString()">
+                            writer LIKE concat('%', #{keyword}, '%')
+                        </if>
+                    </foreach>
+                </if>
+
+                <if test="finished">
+                    <trim prefix="and">
+                        finished = 1
+                    </trim>
+                </if>
+
+                <if test="from != null and to != null">
+                    <trim prefix="and">
+                        dueDate BETWEEN #{from} AND #{to}
+                    </trim>
+                </if>
+              </where>
          ORDER BY tno DESC
          LIMIT #{skip}, #{size}
     </select>
@@ -54,6 +78,30 @@
             resultType="int">
         SELECT COUNT(tno)
           FROM tbl_todo
+        <where>
+            <if test="types != null and types.length > 0">
+                <foreach collection="types" item="type" open="(" close=")" separator=" OR ">
+                    <if test="type == 't'.toString()">
+                        title LIKE concat('%', #{keyword}, '%')
+                    </if>
+                    <if test="type == 'w'.toString()">
+                        writer LIKE concat('%', #{keyword}, '%')
+                    </if>
+                </foreach>
+            </if>
+
+            <if test="finished">
+                <trim prefix="and">
+                    finished = 1
+                </trim>
+            </if>
+
+            <if test="from != null and to != null">
+                <trim prefix="and">
+                    dueDate BETWEEN #{from} AND #{to}
+                </trim>
+            </if>
+        </where>
     </select>
 
 </mapper>

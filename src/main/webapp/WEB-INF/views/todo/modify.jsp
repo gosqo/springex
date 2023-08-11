@@ -47,29 +47,29 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text">TNO</span>
                                 <input type="text" name="tno" class="form-control"
-                                       value=<c:out value="${dto.tno}"></c:out> readonly>
+                                       value='<c:out value="${dto.tno}" />' readonly>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Title</span>
                                 <input type="text" name="title" class="form-control"
-                                       value=<c:out value="${dto.title}"></c:out> >
+                                       value='<c:out value="${dto.title}" />' >
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">DueDate</span>
                                 <input type="date" name="dueDate" class="form-control"
-                                       value=<c:out value="${dto.dueDate}"></c:out> >
+                                       value='<c:out value="${dto.dueDate}" />' >
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Writer</span>
                                 <input type="text" name="writer" class="form-control"
-                                       value=<c:out value="${dto.writer}"></c:out> readonly>
+                                       value='<c:out value="${dto.writer}" />' readonly>
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
                                     Finished &nbsp;
                                 </label>
                                 <input class="form-check-input" type="checkbox" name="finished"
-                                       ${dto.finished?"checked":""} >
+                                       ${dto.finished ? "checked" : ""} >
                             </div>
                             <div class="my-4">
                                 <div class="float-end">
